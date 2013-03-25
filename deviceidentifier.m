@@ -1,11 +1,11 @@
 //Include this code on any .m file 
 
-size_t size;
-        sysctlbyname("hw.machine", NULL, &size, NULL, 0);
-        char *machine = malloc(size);
-        sysctlbyname("hw.machine", machine, &size, NULL, 0);
-        NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
-        free(machine);
-       NSLog(@"Device is %@", platform);
+ size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *devicec = malloc(size);
+    sysctlbyname("hw.machine", devicec, &size, NULL, 0);
+    NSString *device = [NSString stringWithCString:devicec encoding:NSUTF8StringEncoding];
+    free(devicec);
+    NSLog(@"Device is %@", device);
 
 // This code return the exact device version inside the logs. Use isEqualtoString to compare with another NSString 
